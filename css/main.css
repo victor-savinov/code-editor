@@ -1,0 +1,192 @@
+html {
+  --editor-font-size: 16px;
+  --editor-line-height: 24px;
+}
+
+body
+{
+    font: 400 16px monospace;
+
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+
+    color: var(--editor-text-color);
+    background: var(--editor-background-color);
+}
+
+ul,
+li
+{
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.workspace
+{
+    display: flex;
+
+    flex: 1;
+}
+
+.main
+{
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+}
+
+.editor
+{
+    display: flex;
+    overflow-y: scroll;
+
+    background: var(--editor-background-color);
+
+    flex: 1;
+}
+
+.editor > .editor__viewer
+{
+    display: flex;
+}
+
+.editor > .editor__viewer > .editor__viewer
+{
+    flex: 1;
+}
+
+.editor__gutter-container
+{
+    text-align: right;
+}
+
+.editor__gutter-cell
+{
+    font: 400 var(--editor-font-size) monospace;
+    line-height: var(--editor-line-height);
+
+    padding: 0 16px 0 8px;
+
+    cursor: default;
+
+    opacity: .3;
+}
+
+.editor__gutter-cell.focused
+{
+    opacity: .5;
+}
+
+.editor__gutter-cell.selected
+{
+    opacity: .5;
+    background: var(--editor-gutter-selected-background);
+}
+
+.editor__viewer
+{
+    position: relative;
+
+    width: 100%;
+
+    cursor: text;
+}
+
+.editor__line
+{
+    font: 400 var(--editor-font-size) monospace;
+    line-height: var(--editor-line-height);
+
+    height: var(--editor-line-height);
+
+    white-space: pre;
+
+    color: var(--editor-text-color);
+}
+
+.editor__line *
+{
+    pointer-events: none;
+}
+
+.editor__line.selected
+{
+    background: var(--editor-line-selected-background);
+}
+
+.editor__line.focused
+{
+    background: var(--editor-line-focused-background);
+}
+
+@keyframes cursor
+{
+    from,
+    to
+    {
+        opacity: 0;
+    }
+
+    50%
+    {
+        opacity: 1;
+    }
+}
+
+.editor__cursor
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    visibility: hidden;
+
+    width: 2px;
+    height: var(--editor-line-height);
+
+    animation: cursor .75s step-end infinite;
+    pointer-events: none;
+
+    background: #777;
+}
+
+.editor.focused .editor__cursor
+{
+    visibility: visible;
+}
+
+.editor__textarea
+{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+.editor__character-width
+{
+    font: 400 var(--editor-font-size) monospace;
+
+    position: absolute;
+
+    display: table;
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+.input-file
+{
+    display: none;
+}

@@ -1,0 +1,32 @@
+.footer
+{
+    font-size: 12px;
+
+    display: flex;
+
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px;
+
+    border-top: 1px solid var(--footer-border);
+    background: var(--footer-background);
+}
+
+.footer__section
+{
+    display: inline-flex;
+
+    width: 50%;
+
+    align-items: center;
+}
+
+.footer__section--align-start
+{
+    justify-content: flex-start;
+}
+
+.footer__section--align-end
+{
+    justify-content: flex-end;
+}

@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset=utf-8>
+  <title>Code Editor</title>
+  <link rel=stylesheet href=css/main.css>
+  <link rel=stylesheet href=css/theme.css>
+  <link rel=stylesheet href=css/menu-bar.css>
+  <link rel=stylesheet href=css/header.css>
+  <link rel=stylesheet href=css/tabs.css>
+  <link rel=stylesheet href=css/footer.css>
+  <link rel=stylesheet href=css/aside.css>
+</head>
+
+<body>
+  <nav class=menu-bar>
+    <ul>
+      <li>File
+        <ul>
+          <li class=menu-bar__new-file><span>New File</span> <span class=menu-bar__shortcut>Ctrl+N</span></li>
+          <li class=menu-bar__open-file><span>Open File...</span> <span class=menu-bar__shortcut>Ctrl+O</span></li>
+          <span class=menu-bar__separator></span>
+          <li class=menu-bar__close-tab><span>Close Tab</span> <span class=menu-bar__shortcut>Ctrl+W</span></li>
+          <li class=menu-bar__close-all-tabs><span>Close All Tabs</span></li>
+        </ul>
+      </li>
+      <li>Edit
+        <ul>
+          <li class=menu-bar__cut><span>Cut</span> <span class=menu-bar__shortcut>Ctrl+X</span></li>
+          <li class=menu-bar__copy><span>Copy</span> <span class=menu-bar__shortcut>Ctrl+C</span></li>
+          <li class=menu-bar__paste><span>Paste</span> <span class=menu-bar__shortcut>Ctrl+V</span></li>
+          <li class=menu-bar__select-all><span>Select All</span> <span class=menu-bar__shortcut>Ctrl+A</span></li>
+        </ul>
+      </li>
+      <li>View
+        <ul>
+          <li class=menu-bar__toggle-fullscreen><span>Toggle Full Screen</span> <span class=menu-bar__shortcut>F11</span></li>
+          <li class=menu-bar__toggle-menu-bar><span>Toggle Menu Bar</span> <span class=menu-bar__shortcut>Alt</span></li>
+          <li class=menu-bar__toggle-tree-view><span>Toggle Tree View</span> <span class=menu-bar__shortcut>Ctrl+\</span></li>
+          <span class=menu-bar__separator></span>
+          <li class=menu-bar__increase-font-size><span>Increase Font Size</span> <span class=menu-bar__shortcut>Ctrl+Shift+=</span></li>
+          <li class=menu-bar__decrease-font-size><span>Decrease Font Size</span> <span class=menu-bar__shortcut>Ctrl+Shift+-</span></li>
+        </ul>
+      </li>
+      <li>Find
+        <ul>
+          <li class=menu-bar__find-previous><span>Find Previous</span> <span class=menu-bar__shortcut>Shift+F3</span></li>
+          <li class=menu-bar__find-next><span>Find Next</span> <span class=menu-bar__shortcut>F3</span></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <div class=workspace>
+    <aside class=aside>
+      <div class=aside__content>
+        <div class=aside__content__title>Project</div>
+        <div class=aside__content__tree-view>Project</div>
+      </div>
+      <div class=aside__resize></div>
+    </aside>
+
+    <main class=main>
+      <header class=header>
+        <section class="header__section header__section--align-start"></section>
+        <!--<section class="header__section header__section--align-end"></section>-->
+      </header>
+
+      <div class=editor></div>
+    </main>
+  </div>
+
+  <footer class=footer>
+    <section class="footer__section footer__section--align-start">
+      <span class=footer__section__cursor-position>0:0</span>
+    </section>
+    <section class="footer__section footer__section--align-end">
+      <span class=footer__section__grammar-status>Plain Text</span>
+    </section>
+  </footer>
+
+  <input class=input-file type=file>
+
+  <script src=js/functions.js></script>
+  <script src=js/core.js></script>
+  <script src=js/tabs.js></script>
+  <script src=js/files.js></script>
+  <script src=js/aside.js></script>
+  <script src=js/footer.js></script>
+  <script src=js/shortcuts.js></script>
+  <script>
+    var code_editor = new Editor('.editor'),
+        code_editor__files = new Files();
+
+    code_editor__files.newFile('index.html', [
+      '<!doctype html>',
+      '<html>',
+      '  <head>',
+      '    <meta charset=utf-8>',
+      '  </head>',
+      '  <body></body>',
+      '</html>'
+    ]);
+
+    code_editor__files.newFile('script.js', [
+      'function helloWorld() {',
+      '  return false;',
+      '}'
+    ]);
+
+    code_editor__files.newFile('styles.css', [
+      'body {',
+      '  margin: 0;',
+      '}'
+    ]);
+
+    code_editor__files.newFile('TODO.txt', [
+      'Features:',
+      '[ ] "Syntax highlighting"',
+      '[ ] "Select"',
+      '[ ] "Cut", "Copy", "Paste"',
+      '[ ] "Search"',
+      '[ ] "Search & Replace"',
+      '[ ] "Context Menu"',
+      '[ ] ...'
+    ]);
+
+    document.querySelector('.tab').click();
+  </script>
+  </body>
+
+</html>

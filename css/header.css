@@ -1,0 +1,28 @@
+.header
+{
+    display: flex;
+
+    height: 32px;
+
+    border-bottom: 1px solid var(--header-border);
+    background: var(--header-background);
+}
+
+.header__section
+{
+    display: inline-flex;
+
+    width: 50%;
+
+    align-items: center;
+}
+
+.header__section--align-start
+{
+    justify-content: flex-start;
+}
+
+.header__section--align-end
+{
+    justify-content: flex-end;
+}

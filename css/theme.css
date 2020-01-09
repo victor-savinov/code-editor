@@ -1,0 +1,17 @@
+html
+{
+    --menu-bar-background: #eeeff2;
+    --header-background: #eeeff2;
+    --header-border: #c0ccd8;
+    --tabs-focused-background-color: #f6f7fa;
+    --tabs-focused-color: #60bf9d;
+    --aside-background: #eeeff2;
+    --aside-border: #c7d3df;
+    --editor-background-color: #f6f7fa;
+    --editor-text-color: #63738d;
+    --editor-gutter-selected-background: rgba(0, 0, 0, .095);
+    --editor-line-selected-background: rgba(0, 0, 0, .1);
+    --editor-line-focused-background: rgba(0, 0, 0, .045);
+    --footer-background: #e7e9ec;
+    --footer-border: #c7d3df;
+}

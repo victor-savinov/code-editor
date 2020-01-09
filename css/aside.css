@@ -1,0 +1,114 @@
+.aside
+{
+    display: flex;
+
+    min-width: 100px;
+
+    border-right: 1px solid var(--aside-border);
+    background: var(--aside-background);
+}
+
+.aside.hidden
+{
+    display: none;
+}
+
+.aside__content
+{
+    flex: 1;
+}
+
+.aside__resize
+{
+    width: 4px;
+
+    cursor: e-resize;
+}
+
+.aside__content
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.aside__content__title
+{
+    font-size: 12px;
+
+    display: flex;
+
+    height: 32px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.aside__content__tree-view
+{
+    font-size: 13px;
+
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+    padding: 8px 0;
+
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.aside__content__tree-view > span
+{
+    position: relative;
+
+    display: flex;
+
+    box-sizing: border-box;
+    width: 100%;
+    padding: 4px 16px 4px 32px;
+
+    cursor: default;
+
+    align-items: center;
+}
+
+.aside__content__tree-view > span.focused,
+.aside__content__tree-view > span:hover
+{
+    background: rgba(0,0,0,.05);
+}
+
+.aside__content__tree-view > span::before
+{
+    display: block;
+
+    width: 10px;
+    height: 12px;
+    margin: 0 8px 0 0;
+
+    content: '';
+
+    opacity: .8;
+    border: 1px solid var(--editor-text-color);
+    border-radius: 2px;
+}
+
+.aside__content__tree-view > span::after
+{
+    position: absolute;
+    top: 5px;
+    left: 40px;
+
+    display: block;
+
+    width: 0;
+    height: 0;
+
+    content: '';
+
+    opacity: .8;
+    border: 2px solid var(--editor-text-color);
+    border-top-color: transparent;
+    border-right-color: transparent;
+    background: var(--header-background);
+}
